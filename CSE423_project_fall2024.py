@@ -5,7 +5,7 @@ import random
 import time
 import math
 
-# Game constants (existing constants remain the same)
+# Game constants
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
 ROAD_WIDTH = 600
@@ -33,7 +33,7 @@ STATE_MENU = 0
 STATE_SINGLE_PLAYER = 1
 STATE_MULTIPLAYER = 2
 STATE_GAME_OVER = 3
-STATE_PAUSED = 4  # New state for pause
+STATE_PAUSED = 4
 
 
 # Game states
@@ -274,7 +274,6 @@ class Car:
 
 class Game:
     def __init__(self):
-        # Existing initialization code remains the same
         self.lane_width = ROAD_WIDTH // TOTAL_LANES
         center_lane = LANE_COUNT - 1
         start_x = (WINDOW_WIDTH - ROAD_WIDTH) // 2 + (center_lane * self.lane_width) + (self.lane_width // 2)
@@ -717,7 +716,7 @@ class Game:
                             break
 
         # Optimize car updates
-        max_cars = 8  # Reduced maximum cars for performance
+        max_cars = 8  # maximum cars for performance
 
         # Update traffic cars
         self.traffic_cars = [car for car in self.traffic_cars if car.y >= -CAR_HEIGHT]
@@ -866,7 +865,6 @@ class Game:
                 self.game_state = STATE_MENU
                 return
 
-        # Existing player controls remain the same
         if self.game_state in [STATE_SINGLE_PLAYER, STATE_MULTIPLAYER]:
             if key == b'a' and self.player.lane > 0:
                 self.player.lane -= 1
